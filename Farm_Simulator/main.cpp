@@ -7,53 +7,51 @@
 using std::cout;
 
 void menu() {
-	
-	char select;
-	
-	cout << "Welcome in the Farming simulator !";
 
-	cout << "\n\n Menu";
-	cout << "\n========";
-	cout << "\n P - Parallel";
-	cout << "\n S - Serial";
-	cout << "\n E - Exit";
-	cout << "\n\nChoose wisely: ";
+    char select;
 
-	std::cin >> select;
-	system("cls");
+    cout << "Welcome in the Farming simulator !";
 
-	switch (select) {
+    cout << "\n\n Menu";
+    cout << "\n========";
+    cout << "\n P - Parallel";
+    cout << "\n S - Serial";
+    cout << "\n E - Exit";
+    cout << "\n\nChoose wisely: ";
 
-	case 'P':
-	case 'p':
-	{
-		parallelMenu();
-		break;
-	}
+    std::cin >> select;
+    system("cls");
 
-	case 'S':
-	case 's':
-	{
-		serialMenu();
-		break;
-	}
+    switch (select) {
 
-	case 'E':
-	case 'e':
-	{
-		break;
-	}
+    case 'P':
+    case 'p': {
+        parallelMenu();
+        break;
+    }
 
-	default: cout << "\n oof";
-	}
+    case 'S':
+    case 's': {
+        serialMenu();
+        break;
+    }
 
-	cout << "\n";
+    case 'E':
+    case 'e': {
+        break;
+    }
+
+    default:
+        cout << "\n oof";
+    }
+
+    cout << "\n";
 }
 
 int main(int argc, char* argv[]) {
 
-	srand(time(NULL));
-	menu();
-	
-	return 0;
+    srand(time(NULL));
+    menu();
+
+    return 0;
 }
