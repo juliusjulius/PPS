@@ -52,8 +52,8 @@ int main(int argc, char* argv[]) {
     srand(time(NULL));
     menu();
 
-    /*std::cin.get();
-    getchar();*/
+    std::cin.get();
+    getchar();
 
     return 0;
 }
