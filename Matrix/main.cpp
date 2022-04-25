@@ -10,5 +10,6 @@ int main(int argc, char* argv[]) {
 	unsigned int numThreads = std::thread::hardware_concurrency();
 
 	cout  << numThreads << endl;
+
 	return 0;
 }

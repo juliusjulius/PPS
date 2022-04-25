@@ -20,7 +20,8 @@ void estimatePI(int numberOfEst)
         }
     }
 
-     valuePI = 4.0 * inCricle / throws;
+    cout.precision(7);
+    valuePI = 4.0 * inCricle / throws;
 }
 
 
@@ -56,8 +57,9 @@ void serialMenu() {
         endTime = std::chrono::high_resolution_clock::now();    // stop measurment
 
         cout << "Approx value of PI: " << valuePI << std::endl;
-        cout << "Difference to exact value of PI: " << (valuePI - (22 / 7)) << std::endl;
-        cout << "Error: " << (valuePI - (22 / 7)) / (22 / 7) * 100 << " %" << std::endl;
+        cout << "Exact value of PI: " << 22.0/7.0 << std::endl;
+        cout << "Difference to exact value of PI: " << abs((22.0 / 7.0) - valuePI) << std::endl;
+        cout << "Error: " << (valuePI - (22.0 / 7.0)) / (22.0 / 7.0) * 100 << " %" << std::endl;
         cout << "Time duration: " << std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime).count() << " ns\n";   // endTime - starTime = time elapsed
         cout << "Time duration: " << std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count()<< " ns\n";   
 
