@@ -61,7 +61,9 @@ void serialMenu() {
     case 'r': {
         int warehouseCapacity;
         int numberOfSlaves;
-        int field;
+        int field; 
+        std::chrono::high_resolution_clock::time_point startTime;   // variables to store time data
+        std::chrono::high_resolution_clock::time_point endTime;
 
         cout << "\nenter field size: ";
         std::cin >> field;
@@ -74,7 +76,15 @@ void serialMenu() {
 
         structureS data{ 0, warehouseCapacity, field };
 
-        farm(std::ref(data));
+        
+        startTime = std::chrono::high_resolution_clock::now();  // start measure time 
+        farm(std::ref(data));                                   // execute code
+        endTime = std::chrono::high_resolution_clock::now();    // stop measurment
+
+        cout << "\n===============================";
+        cout << "\nEndtime in miliseconds: " << std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count();   // endTime - starTime = time elapsed
+        cout << "\n=========================";
+        cout << "\nEndtime in seconds: " << std::chrono::duration_cast<std::chrono::seconds>(endTime - startTime).count();
         break;
     }
 

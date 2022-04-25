@@ -46,6 +46,7 @@ void master(structure& data) { //consumer
 
         if (data.end || data.field == 0) {
             cout << std::endl << "Master: great job, field is harvested !" << std::endl;
+            data.cond2.notify_all();
             break;
         }
 
@@ -81,6 +82,8 @@ void parallelMenu() {
         int warehouseCapacity;
         int numberOfSlaves;
         int field;
+        std::chrono::high_resolution_clock::time_point startTime;   // variables to store time data
+        std::chrono::high_resolution_clock::time_point endTime;
 
         cout << "\nenter field size: ";
         std::cin >> field;
@@ -97,6 +100,8 @@ void parallelMenu() {
 
         structure data{ 0, warehouseCapacity, field, false };
 
+        startTime = std::chrono::high_resolution_clock::now();  // start measure time 
+
         std::thread cons(master, std::ref(data)); //start master thread
 
         std::vector < std::thread > prod;
@@ -104,8 +109,17 @@ void parallelMenu() {
             prod.push_back(std::thread(slaves, std::ref(data)));
         }
 
+        
+
         cons.join(); //to join threads at the end
         for (auto& th : prod) th.join();
+        endTime = std::chrono::high_resolution_clock::now();    // stop measurment
+
+        cout << "\n===============================";
+        cout << "\nEndtime in miliseconds: " << std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count();   // endTime - starTime = time elapsed
+        cout << "\n=========================";
+        cout << "\nEndtime in seconds: " << std::chrono::duration_cast<std::chrono::seconds>(endTime - startTime).count();
+
         break;
     }
 
