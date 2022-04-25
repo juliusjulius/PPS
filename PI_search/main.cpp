@@ -1,5 +1,5 @@
 #include "Serial.h"
-//#include "Parallel.h"
+#include "Parallel.h"
 #include<stdlib.h>
 
 
@@ -25,7 +25,7 @@ void menu() {
 
     case 'P':
     case 'p': {
-      //  parallelMenu();
+        parallelMenu();
         break;
     }
 
