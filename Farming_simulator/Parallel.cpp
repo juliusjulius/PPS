@@ -95,7 +95,7 @@ void parallelMenu() {
         cout << "Simulation has started, year - 1705..." << std::endl << std::endl;
         std::this_thread::sleep_for(std::chrono::seconds(2));
 
-        structure data{0, warehouseCapacity, field, false };
+        structure data{ 0, warehouseCapacity, field, false };
 
         std::thread cons(master, std::ref(data)); //start master thread
 

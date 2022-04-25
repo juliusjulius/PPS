@@ -5,11 +5,12 @@
 #include <thread>
 
 void serialMenu();
-void slave(structureS& data);
-void master(structureS& data);
 
-struct structureS{
+struct structureS {
 	int warehouseStatus;
 	int warehouseCapacity;
 	int field;
 };
+
+void slave(structureS& data);
+void master(structureS& data);

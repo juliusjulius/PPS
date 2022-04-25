@@ -16,22 +16,22 @@ void slave(structureS& data) {
     cout << " *Cotton collected* " << std::endl;
 }
 
-void farm(structureS &data) {
+void farm(structureS& data) {
 
     bool end = false;
 
     while (!end) {
-        
-        if (data.warehouseStatus == data.warehouseCapacity) 
+
+        if (data.warehouseStatus == data.warehouseCapacity)
         {
             cout << std::endl << "Slave: oh no, warehouse full, I rest" << std::endl;
             master(std::ref(data));
         }
-        else 
+        else
         {
-          slave(std::ref(data));
+            slave(std::ref(data));
         }
-        
+
         if (data.field == 0)
         {
             end = true;
@@ -72,7 +72,7 @@ void serialMenu() {
         cout << "\nSimulation has started, year - 1705..." << std::endl << std::endl;
         std::this_thread::sleep_for(std::chrono::seconds(2));
 
-        structureS data{0, warehouseCapacity, field};
+        structureS data{ 0, warehouseCapacity, field };
 
         farm(std::ref(data));
         break;

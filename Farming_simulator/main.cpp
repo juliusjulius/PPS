@@ -1,6 +1,5 @@
 #include "Serial.h"
 #include "Parallel.h"
-#include "Serial.h"
 #include<stdlib.h>
 
 
