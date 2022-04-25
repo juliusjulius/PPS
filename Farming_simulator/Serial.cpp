@@ -16,13 +16,13 @@ void slave(structureS& data) {
     cout << " *Cotton collected* " << std::endl;
 }
 
-void farm(structureS& data) {
+void farm(structureS& data) { // farm loop
 
     bool end = false;
 
     while (!end) {
 
-        if (data.warehouseStatus == data.warehouseCapacity)
+        if (data.warehouseStatus == data.warehouseCapacity)  // if warehouse full, call Master methode to empty warehouse  
         {
             cout << std::endl << "Slave: oh no, warehouse full, I rest" << std::endl;
             master(std::ref(data));
@@ -32,7 +32,7 @@ void farm(structureS& data) {
             slave(std::ref(data));
         }
 
-        if (data.field == 0)
+        if (data.field == 0)  // checking if there is cotton to collect, if not terminate program
         {
             end = true;
             cout << std::endl << "Master: great job, field is harvested !" << std::endl;
