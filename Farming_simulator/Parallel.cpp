@@ -27,7 +27,7 @@ void slaves(structure& data) { //producer
         cout << " *Cotton collected* " << std::endl;
         lck.unlock();
 
-        //std::this_thread::sleep_for(std::chrono::seconds(1));// collecting of cotton
+        std::this_thread::sleep_for(std::chrono::nanoseconds(500)); // collecting of cotton
 
     }
 
@@ -46,13 +46,14 @@ void master(structure& data) { //consumer
 
         if (data.end || data.field == 0) {
             cout << std::endl << "Master: great job, field is harvested !" << std::endl;
+            data.end = true;
             data.cond2.notify_all();
             break;
         }
 
         data.warehouseStatus = 0; // master emptie's warehouse
         cout << std::endl << " *warehouse has been emptied*" << std::endl;
-        //std::this_thread::sleep_for(std::chrono::seconds(1));
+        std::this_thread::sleep_for(std::chrono::nanoseconds(500));
         cout << std::endl << "Master: Why is warehouse empty ?! *whip* *whip*" << std::endl << std::endl;
 
         lck.unlock();
@@ -108,8 +109,6 @@ void parallelMenu() {
         for (size_t i = 0; i < numberOfSlaves; i++) { //start consumer threads
             prod.push_back(std::thread(slaves, std::ref(data)));
         }
-
-        
 
         cons.join(); //to join threads at the end
         for (auto& th : prod) th.join();

@@ -6,7 +6,7 @@ using std::cout;
 void master(structureS& data) {
     data.warehouseStatus = 0; // master emptie's warehouse
     cout << std::endl << " *warehouse has been emptied*" << std::endl;
-    //std::this_thread::sleep_for(std::chrono::seconds(1));
+    std::this_thread::sleep_for(std::chrono::nanoseconds(500));
     cout << std::endl << "Master: Why is warehouse empty ?! *whip* *whip*" << std::endl << std::endl;
 }
 
@@ -14,6 +14,7 @@ void slave(structureS& data) {
     data.field--;
     data.warehouseStatus++;
     cout << " *Cotton collected* " << std::endl;
+    std::this_thread::sleep_for(std::chrono::nanoseconds(500)); // collecting of cotton
 }
 
 void farm(structureS& data) { // farm loop
