@@ -100,7 +100,7 @@ void parallelMenu() {
         cout << "Difference to exact value of PI: " << abs((22.0 / 7.0) - valuePIp) << std::endl;
         cout << "Error: " << (valuePIp - (22.0 / 7.0)) / (22.0 / 7.0) * 100 << " %" << std::endl;
         cout << "Time duration: " << std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime).count() << " ns\n";   // endTime - starTime = time elapsed
-        cout << "Time duration: " << std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count() << " ns\n";
+        cout << "Time duration: " << std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count() << " ms\n";
         //debug cout << count << "itt normal " << ittNormal << " itt modulo " << ittModulo  << " val: " << inCricle;
 
         break;

@@ -61,7 +61,7 @@ void serialMenu() {
         cout << "Difference to exact value of PI: " << abs((22.0 / 7.0) - valuePI) << std::endl;
         cout << "Error: " << (valuePI - (22.0 / 7.0)) / (22.0 / 7.0) * 100 << " %" << std::endl;
         cout << "Time duration: " << std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime).count() << " ns\n";   // endTime - starTime = time elapsed
-        cout << "Time duration: " << std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count()<< " ns\n";   
+        cout << "Time duration: " << std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count()<< " ms\n";   
 
         break;
     }
