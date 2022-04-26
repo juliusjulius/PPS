@@ -20,6 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Parallel.cpp" />
+    <ClCompile Include="Serial.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Parallel.h" />
+    <ClInclude Include="Serial.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

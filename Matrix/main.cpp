@@ -1,15 +1,59 @@
 #include <iostream>
 #include <thread>
+#include "Serial.h"
+#include "Parallel.h"
+
 using namespace std;
 
+void menu() {
+
+    char select;
+
+    cout << "Welcome in the Matrix multiplicator!";
+
+    cout << "\n\n Menu";
+    cout << "\n========";
+    cout << "\n P - Parallel";
+    cout << "\n S - Serial";
+    cout << "\n E - Exit";
+    cout << "\n\nChoose wisely: ";
+
+    std::cin >> select;
+    system("cls");
+
+    switch (select) {
+
+    case 'P':
+    case 'p': {
+        parallelMenu();
+        break;
+    }
+
+    case 'S':
+    case 's': {
+        serialMenu();
+        break;
+    }
+
+    case 'E':
+    case 'e': {
+        break;
+    }
+
+    default:
+        cout << "\n oof";
+    }
+
+    cout << "\n";
+}
 
 int main(int argc, char* argv[]) {
 
+    srand(time(NULL));
+    menu();
 
-	cout << "hello world - Matrix\n\n";
-	unsigned int numThreads = std::thread::hardware_concurrency();
+    std::cin.get();
+    getchar();
 
-	cout  << numThreads << endl;
-
-	return 0;
+    return 0;
 }
